@@ -68,6 +68,10 @@ FAIL src/App.test.tsx
               [0mThe Grand Budapest Hotel[0m
             [36m</li>[39m
           [36m</ol>[39m
+          [36m<img[39m
+            [33malt[39m=[32m"A very happy man"[39m
+            [33msrc[39m=[32m"https://preview.redd.it/j02itmog3t721.jpg?auto=webp&s=aae79e633e3d44b81580e1833ddce04a9ebc5bb3"[39m
+          [36m/>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -100,5 +104,5 @@ All files |     100 |      100 |     100 |     100 |
 Test Suites: 1 failed, 1 passed, 2 total
 Tests:       1 failed, 1 passed, 2 total
 Snapshots:   0 total
-Time:        2.638 s
+Time:        2.513 s
 Ran all test suites.
