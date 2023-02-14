@@ -23,6 +23,9 @@ function App(): JSX.Element {
                 src="https://preview.redd.it/j02itmog3t721.jpg?auto=webp&s=aae79e633e3d44b81580e1833ddce04a9ebc5bb3"
                 alt="A very happy man"
             />
+            <Button onClick={() => console.log("Hello World!")}>
+                Log Hello World
+            </Button>
         </div>
     );
 }
