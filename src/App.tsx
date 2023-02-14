@@ -1,4 +1,5 @@
 import React from "react";
+import { Button, Container, Row, Col } from "react-bootstrap";
 import "./App.css";
 
 function App(): JSX.Element {
@@ -26,6 +27,16 @@ function App(): JSX.Element {
             <Button onClick={() => console.log("Hello World!")}>
                 Log Hello World
             </Button>
+            <Container>
+                <Row>
+                    <Col>First column.</Col>
+                    <Col>
+                        Second column. You can put whatever you want in here,
+                        and it will be on the right side. Maybe try adding an
+                        image?
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 }
