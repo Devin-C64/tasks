@@ -19,6 +19,10 @@ function App(): JSX.Element {
                 <li>2001: A Space Odyssey</li>
                 <li>The Grand Budapest Hotel</li>
             </ol>
+            <img
+                src="https://preview.redd.it/j02itmog3t721.jpg?auto=webp&s=aae79e633e3d44b81580e1833ddce04a9ebc5bb3"
+                alt="A very happy man"
+            />
         </div>
     );
 }
