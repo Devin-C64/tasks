@@ -31,8 +31,8 @@ export function tripleNumbers(numbers: number[]): number[] {
  */
 export function stringsToIntegers(numbers: string[]): number[] {
     const integers = numbers.map((num: string): number => parseInt(num));
-    const realInts = integers.filter(
-        (int: number): boolean => !Number.isNaN(int)
+    const realInts = integers.map((int: number): number =>
+        !Number.isNaN(int) ? 0 : int
     );
     return realInts;
 }
@@ -45,10 +45,11 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    const noDollars = amounts.filter(
-        (amount: string): boolean => !amount.startsWith("$")
+    const noDollars = amounts.map((amount: string): string =>
+        amount.startsWith("$") ? amount.replace("$", "") : amount
     );
-    return [];
+    const integers = stringsToIntegers(noDollars);
+    return integers;
 };
 
 /**
@@ -108,7 +109,21 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    const sum = addends.reduce(
+        (currentTotal: number, num: number) => currentTotal + num,
+        0
+    );
+    const add = addends.reduce(
+        (currentString: string, num: number) =>
+            currentString + num.toString() + "+",
+        ""
+    );
+
+    if (sum !== 0) {
+        return sum.toString() + "=" + add.slice(0, -1);
+    } else {
+        return "0=0";
+    }
 }
 
 /**
