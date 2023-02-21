@@ -30,7 +30,11 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const integers = numbers.map((num: string): number => parseInt(num));
+    const realInts = integers.filter(
+        (int: number): boolean => !Number.isNaN(int)
+    );
+    return realInts;
 }
 
 /**
@@ -50,7 +54,13 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const noQuestions = messages.filter(
+        (message: string): boolean => !message.endsWith("?")
+    );
+    const shout = noQuestions.map((message: string): string =>
+        message.endsWith("!") ? message.toUpperCase() : message
+    );
+    return shout;
 };
 
 /**
