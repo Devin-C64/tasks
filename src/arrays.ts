@@ -12,8 +12,8 @@ export function bookEndList(numbers: number[]): number[] {
         return doubleNumber;
     } else {
         const array = [...numbers];
-        const final = array.splice(1, array.length - 2);
-        return final;
+        array.splice(1, array.length - 2);
+        return array;
     }
 }
 
