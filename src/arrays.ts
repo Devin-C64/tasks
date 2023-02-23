@@ -11,8 +11,9 @@ export function bookEndList(numbers: number[]): number[] {
         const doubleNumber = [...numbers, ...numbers];
         return doubleNumber;
     } else {
-        const firstAndLast = [...numbers];
-        return firstAndLast;
+        const array = [...numbers];
+        const final = array.splice(1, array.length - 2);
+        return final;
     }
 }
 
@@ -32,7 +33,7 @@ export function tripleNumbers(numbers: number[]): number[] {
 export function stringsToIntegers(numbers: string[]): number[] {
     const integers = numbers.map((num: string): number => parseInt(num));
     const realInts = integers.map((int: number): number =>
-        !Number.isNaN(int) ? 0 : int
+        !Number.isNaN(int) ? int : 0
     );
     return realInts;
 }
