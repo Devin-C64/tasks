@@ -159,7 +159,10 @@ export function publishAll(questions: Question[]): Question[] {
  */
 export function sameType(questions: Question[]): boolean {
     const array = [...questions];
-    const allType = array[0].type;
+    if (array.length === 0) {
+        return true;
+    }
+    const allType = questions[0].type;
     const notSame = array.some((question) => question.type !== allType);
     return !notSame;
 }
