@@ -137,6 +137,7 @@ export function toCSV(questions: Question[]): string {
  * making the `text` an empty string, and using false for both `submitted` and `correct`.
  */
 export function makeAnswers(questions: Question[]): Answer[] {
+    const array = [...questions];
     return [];
 }
 
@@ -146,7 +147,9 @@ export function makeAnswers(questions: Question[]): Answer[] {
  */
 export function publishAll(questions: Question[]): Question[] {
     const array = [...questions];
-    const pub = array.map((question: Question): Question => question);
+    const pub = array.map(
+        (question: Question): Question => ({ ...question, published: true })
+    );
     return pub;
 }
 
