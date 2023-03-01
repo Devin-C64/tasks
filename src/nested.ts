@@ -1,5 +1,6 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
+import { makeBlankQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -144,7 +145,9 @@ export function makeAnswers(questions: Question[]): Answer[] {
  * each question is now published, regardless of its previous published status.
  */
 export function publishAll(questions: Question[]): Question[] {
-    return [];
+    const array = [...questions];
+    const pub = array.map((question: Question): Question => question);
+    return pub;
 }
 
 /***
@@ -152,7 +155,10 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
-    return false;
+    const array = [...questions];
+    const allType = array[0].type;
+    const notSame = array.some((question) => question.type !== allType);
+    return !notSame;
 }
 
 /***
@@ -166,7 +172,10 @@ export function addNewQuestion(
     name: string,
     type: QuestionType
 ): Question[] {
-    return [];
+    const array = [...questions];
+    const empty = makeBlankQuestion(id, name, type);
+    array.push(empty);
+    return array;
 }
 
 /***
