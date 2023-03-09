@@ -250,7 +250,51 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    return [];
+    const hardArrayCopy = questions.map(
+        (question: Question): Question => ({
+            id: question.id,
+            name: question.name,
+            body: question.body,
+            type: question.type,
+            options: [...question.options],
+            expected: question.expected,
+            points: question.points,
+            published: question.published
+        })
+    );
+    if (hardArrayCopy.length === 0) {
+        return [];
+    }
+
+    const target = findQuestion(hardArrayCopy, targetId);
+    if (target === null) {
+        return hardArrayCopy;
+    }
+
+    const targetCopy = {
+        id: target.id,
+        name: target.name,
+        body: target.body,
+        type: target.type,
+        options: [...target.options],
+        expected: target.expected,
+        points: target.points,
+        published: target.published
+    };
+    if (
+        targetOptionIndex !== -1 &&
+        targetOptionIndex < targetCopy.options.length
+    ) {
+        targetCopy.options.splice(targetOptionIndex, 1, newOption);
+    } else {
+        targetCopy.options.splice(targetCopy.options.length, 0, newOption);
+    }
+    const changed = hardArrayCopy.map(
+        (question: Question): Question =>
+            question.id === targetId ? targetCopy : question
+    );
+
+    return changed;
 }
 
 /***
