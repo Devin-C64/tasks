@@ -1,6 +1,12 @@
 import React from "react";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import "./App.css";
+import { ChangeType } from "./components/ChangeType";
+import { RevealAnswer } from "./components/RevealAnswer";
+import { StartAttempt } from "./components/StartAttempt";
+import { TwoDice } from "./components/TwoDice";
+import { CycleHoliday } from "./components/CycleHoliday";
+import { Counter } from "./components/Counter";
 
 function App(): JSX.Element {
     return (
@@ -8,6 +14,18 @@ function App(): JSX.Element {
             <header style={{ backgroundColor: "blue" }} className="App-header">
                 UD CISC275, Hello World
             </header>
+            <hr></hr>
+            <Counter></Counter>
+            <hr />
+            <RevealAnswer></RevealAnswer>
+            <hr />
+            <StartAttempt></StartAttempt>
+            <hr />
+            <TwoDice></TwoDice>
+            <hr />
+            <ChangeType></ChangeType>
+            <hr />
+            <CycleHoliday></CycleHoliday>
             <h1>This is a header</h1>
             <p> Devin Cummings </p>
             List of my favorite movies:
