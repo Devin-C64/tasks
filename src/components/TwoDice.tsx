@@ -12,14 +12,8 @@ export function d6(): number {
 }
 
 export function TwoDice(): JSX.Element {
-    let num1 = d6();
-    let num2 = d6();
-    while (num1 === num2) {
-        num1 = d6();
-        num2 = d6();
-    }
-    const [leftNum, setLeft] = useState<number>(num1);
-    const [rightNum, setRight] = useState<number>(num2);
+    const [leftNum, setLeft] = useState<number>(2);
+    const [rightNum, setRight] = useState<number>(3);
 
     function determineWin(number1: number, number2: number): string {
         if (number1 === 1 && number2 === 1) {
@@ -33,12 +27,12 @@ export function TwoDice(): JSX.Element {
     return (
         <div>
             <div>
-                Left Die: <span data-testid="left die">{leftNum}</span>
                 <Button onClick={() => setLeft(d6())}>Roll Left</Button>
+                Left Die: <span data-testid="left-die">{leftNum}</span>
             </div>
             <div>
-                Right Die: <span data-testid="right die">{rightNum}</span>
                 <Button onClick={() => setRight(d6())}>Roll Right</Button>
+                Right Die: <span data-testid="right-die">{rightNum}</span>
             </div>
             <div>
                 {leftNum === 1 && rightNum === 1 ? (
