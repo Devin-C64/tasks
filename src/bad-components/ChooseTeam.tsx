@@ -19,13 +19,15 @@ export function ChooseTeam(): JSX.Element {
             const teamCopy = [...team];
             teamCopy.push(newMember);
             setTeam(teamCopy);
-            const index = PEOPLE.indexOf(newMember);
-            PEOPLE.splice(index, 1);
-            setAllOptions(PEOPLE);
+            const peopleCopy = [...allOptions];
+            const index = peopleCopy.indexOf(newMember);
+            peopleCopy.splice(index, 1);
+            setAllOptions(peopleCopy);
         }
     }
 
     function clearTeam() {
+        setAllOptions(PEOPLE);
         setTeam([]);
     }
 
@@ -37,7 +39,10 @@ export function ChooseTeam(): JSX.Element {
                     {allOptions.map((option: string) => (
                         <div key={option} style={{ marginBottom: "4px" }}>
                             Add{" "}
-                            <Button onClick={chooseMember} size="sm">
+                            <Button
+                                onClick={() => chooseMember(option)}
+                                size="sm"
+                            >
                                 {option}
                             </Button>
                         </div>
