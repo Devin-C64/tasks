@@ -31,7 +31,9 @@ export function ChangeColor(): JSX.Element {
                 id="response-red"
                 label="red"
                 value="red"
-                background-color="red"
+                style={{
+                    backgroundColor: "red"
+                }}
                 checked={chosenColor === "red"}
             />
             <Form.Check
@@ -42,7 +44,9 @@ export function ChangeColor(): JSX.Element {
                 id="response-blue"
                 label="blue"
                 value="blue"
-                background-color="blue"
+                style={{
+                    backgroundColor: "blue"
+                }}
                 checked={chosenColor === "blue"}
             />
             <Form.Check
@@ -53,7 +57,9 @@ export function ChangeColor(): JSX.Element {
                 id="response-green"
                 label="green"
                 value="green"
-                background-color="green"
+                style={{
+                    backgroundColor: "green"
+                }}
                 checked={chosenColor === "green"}
             />
             <Form.Check
@@ -64,7 +70,9 @@ export function ChangeColor(): JSX.Element {
                 id="response-orange"
                 label="orange"
                 value="orange"
-                background-color="orange"
+                style={{
+                    backgroundColor: "orange"
+                }}
                 checked={chosenColor === "orange"}
             />
             <Form.Check
@@ -75,7 +83,9 @@ export function ChangeColor(): JSX.Element {
                 id="response-purple"
                 label="purple"
                 value="purple"
-                background-color="purple"
+                style={{
+                    backgroundColor: "purple"
+                }}
                 checked={chosenColor === "purple"}
             />
             <Form.Check
@@ -86,7 +96,9 @@ export function ChangeColor(): JSX.Element {
                 id="response-yellow"
                 label="yellow"
                 value="yellow"
-                background-color="yellow"
+                style={{
+                    backgroundColor: "yellow"
+                }}
                 checked={chosenColor === "yellow"}
             />
             <Form.Check
@@ -97,7 +109,9 @@ export function ChangeColor(): JSX.Element {
                 id="response-cyan"
                 label="cyan"
                 value="cyan"
-                background-color="cyan"
+                style={{
+                    backgroundColor: "cyan"
+                }}
                 checked={chosenColor === "cyan"}
             />
             <Form.Check
@@ -108,7 +122,9 @@ export function ChangeColor(): JSX.Element {
                 id="response-magenta"
                 label="magenta"
                 value="magenta"
-                background-color="magenta"
+                style={{
+                    backgroundColor: "magenta"
+                }}
                 checked={chosenColor === "magenta"}
             />
             <Form.Check
@@ -119,14 +135,25 @@ export function ChangeColor(): JSX.Element {
                 id="response-white"
                 label="white"
                 value="white"
-                background-color="white"
+                style={{
+                    backgroundColor: "white"
+                }}
                 checked={chosenColor === "white"}
             />
-            <span>
-                <p>You have chosen </p>
-                <div background-color={chosenColor}>{chosenColor}</div>
-                <p>You have chosen </p>
-            </span>
+            <div>
+                <span>
+                    You have chosen
+                    <span
+                        data-testid="colored-box"
+                        style={{
+                            backgroundColor: chosenColor
+                        }}
+                    >
+                        {chosenColor}
+                    </span>
+                    .
+                </span>
+            </div>
         </div>
     );
 }
